@@ -1,9 +1,12 @@
-const { defineConfig } = require("cypress");
+// Import the dotenv package to load environment variables from .env file
+require("dotenv").config();
 
-module.exports = defineConfig({
+module.exports = {
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    baseUrl: "https://www.demoblaze.com/",
+    env: {
+      username: process.env.USERNAME,
+      password: process.env.PASSWORD,
+    }
   },
-});
+};
