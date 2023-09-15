@@ -32,11 +32,7 @@ describe('Place order validation', () => {
 
         phonesPage.addToCart()
 
-        cy.getAlert()
-
-        const alertMessage = /Product added|Product added.\./
-
-        cy.get('@windowAlert').should('be.calledWith', Cypress.sinon.match(alertMessage))
+        phonesPage.assertProductAddedToCart()
 
         cy.visit("")
 
@@ -46,9 +42,7 @@ describe('Place order validation', () => {
 
         phonesPage.addToCart()
 
-        cy.getAlert()
-
-        cy.get('@windowAlert').should('be.calledWith', Cypress.sinon.match(alertMessage))
+        phonesPage.assertProductAddedToCart()
 
         cartPage.goToCart()
 
