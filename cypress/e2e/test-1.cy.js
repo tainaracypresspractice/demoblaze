@@ -7,7 +7,7 @@ const loginPage = new Login()
 const username = Cypress.env('username')
 const password = Cypress.env('password')
 
-describe('Registration', () => {
+describe('Registration validation', () => {
     beforeEach(() => {
         cy.visit("")
     })

@@ -16,5 +16,5 @@ https://nodejs.org/en/download/?utm_source=blog
 * Headless mode: ```npx cypress run```
 * Non headless mode: ```npx cypress run --headed```
 * Run into specific browser: ```npx cypress run --browser chrome```
-* Run specific tests: ```npx cypress run --spec cypress\<folder>\{...}\spec_name.cy.js```
+* Run specific tests: ```npx cypress run --spec cypress\e2e\spec_name.cy.js```
 

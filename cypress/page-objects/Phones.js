@@ -1,5 +1,3 @@
-import cypressConfig from "../../cypress.config";
-
 export default class Phones {
 
     goToPhones (){
@@ -8,5 +6,9 @@ export default class Phones {
 
     goToPhoneDetail(phoneName){
         cy.contains('a', phoneName).click();
+    }
+
+    addToCart(){
+        cy.contains('a', 'Add to cart').click();
     }
 }
