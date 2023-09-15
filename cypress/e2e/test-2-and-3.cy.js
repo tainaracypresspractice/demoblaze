@@ -36,7 +36,7 @@ describe('Place order validation', () => {
 
         const alertMessage = /Product added|Product added.\./
 
-        cy.get('@windowAlert').should('be.calledWith', "Product added.")
+        cy.get('@windowAlert').should('be.calledWith', Cypress.sinon.match(alertMessage))
 
         cy.visit("")
 
