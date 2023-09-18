@@ -6,7 +6,7 @@ module.exports = {
     baseUrl: "https://www.demoblaze.com/",
     env: {
       username: process.env.USERNAME,
-      password: process.env.PASSWORD,
+      password: process.env.PASSWORD
     }
-  },
-};
+  }
+}

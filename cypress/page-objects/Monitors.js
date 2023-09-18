@@ -1,10 +1,10 @@
-export default class Phones {
+export default class Monitors {
 
-    phonesTitles = []
+    monitorsTitles = []
 
-    getPhonesTitles(){
+    getMonitorsTitles(){
         cy.get('a.hrefch').each(($title) => {
-            this.phonesTitles.push($title.text())
+            this.monitorsTitles.push($title.text())
         })
     
         cy.get('body').then(($body) => {
@@ -12,15 +12,14 @@ export default class Phones {
             if (isNextButtonVisible) {
                 cy.get('button#next2').click()
                 cy.wait(1000) //wait should be avoided but in this case it was the simpler solution
-                this.getPhonesTitles()
+                this.getMonitorsTitles()
             }
         })
-
-        return this.phonesTitles
+        
+        return this.monitorsTitles
     }
 
-    goToPhoneDetail(productName){
+    goToMonitorDetail(productName){
         cy.contains('a', productName).click();
     }
-
 }

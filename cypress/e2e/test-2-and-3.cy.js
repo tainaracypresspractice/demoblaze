@@ -1,10 +1,14 @@
 import Phones from '../page-objects/Phones'
 import Login from '../page-objects/Login'
 import Cart from '../page-objects/Cart'
+import ProductsPage from '../page-objects/Products'
+import ProductDetailsPage from '../page-objects/ProductDetails'
 
+const productsPage = new ProductsPage()
 const phonesPage = new Phones()
 const loginPage = new Login()
 const cartPage = new Cart()
+const productDetailsPage = new ProductDetailsPage()
 
 const username = Cypress.env('username')
 const password = Cypress.env('password')
@@ -25,24 +29,24 @@ describe('Place order validation', () => {
  
         cy.get('#nameofuser').should('contain', username)
 
-        phonesPage.goToPhones()
+        productsPage.goToSubCategory('Phones')
 
         //i could use a fixture to get all products names, so i wont hard code it
         phonesPage.goToPhoneDetail('Samsung galaxy s6')
 
-        phonesPage.addToCart()
+        productDetailsPage.addToCart()
 
-        phonesPage.assertProductAddedToCart()
+        productDetailsPage.assertProductAddedToCart()
 
         cy.visit("")
 
-        phonesPage.goToPhones()
+        productsPage.goToSubCategory('Phones')
 
         phonesPage.goToPhoneDetail('Nokia lumia 1520')
 
-        phonesPage.addToCart()
+        productDetailsPage.addToCart()
 
-        phonesPage.assertProductAddedToCart()
+        productDetailsPage.assertProductAddedToCart()
 
         cartPage.goToCart()
 
