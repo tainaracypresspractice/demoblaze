@@ -5,7 +5,9 @@ export default class Login {
         cy.get('#loginusername')
             .click()
             .type(username, { log: false }, { force: true })
-            .should('have.value', username)
+            .should(($input) => {
+                expect($input).to.have.value(username);
+            });
         cy.get('#loginpassword').type(password, { log: false })
         cy.get('button').contains('Log in').click()
     }
