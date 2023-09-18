@@ -6,7 +6,7 @@ export default class Cart {
         cy.visit('cart.html')
     }
 
-    //at this method, could be interesting to put a parameter where we specify which item to delete
+    // At this method, could be interesting to put a parameter where we specify which item to delete
     // but I chose to keep it simple
     deleteItem(){
         cy.contains('a', 'Delete', { timeout: 10000 }).click()

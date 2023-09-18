@@ -2,9 +2,9 @@ export default class Products {
 
 
     goToSubCategory (subcategory){
-        cy.get('.list-group') // Locate the parent element with class "list-group"
-            .find(`a.list-group-item:contains(${subcategory})`) // Find the anchor element containing the specified subcategory text
-            .should('have.attr', 'id', 'itemc'); // Ensure it has the ID "itemc"}
+        cy.get('.list-group')
+            .find(`a.list-group-item:contains(${subcategory})`) 
+            .should('have.attr', 'id', 'itemc');
     }
 
     goToCategories (){
@@ -26,7 +26,8 @@ export default class Products {
           const isNextButtonVisible = $body.find('button#next2').is(':visible');
           if (isNextButtonVisible) {
             cy.get('button#next2').click()
-            titles.push(...getTitles()) // Recursively fetch titles from next page
+            cy.wait(1000) // Wait should be avoided but in this case it was the simpler solution
+            titles.push(...this.getTitles()) // Recursively fetch titles from next page
           }
         })
       
