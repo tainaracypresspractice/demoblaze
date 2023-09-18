@@ -7,6 +7,7 @@ module.exports = {
     env: {
       username: process.env.USERNAME,
       password: process.env.PASSWORD
-    }
+    },
+    defaultCommandTimeout: 100000
   }
 }
