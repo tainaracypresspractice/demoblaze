@@ -32,7 +32,7 @@ describe('Registration validation', () => {
     })
 
     it('Login with wrong password', () => {
-        const invalidPassword = "m!nh0c@s"
+        const invalidPassword = "minhocas"
 
         loginPage.login(username, invalidPassword)
 

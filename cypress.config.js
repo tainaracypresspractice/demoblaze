@@ -8,6 +8,7 @@ module.exports = {
       username: process.env.USERNAME,
       password: process.env.PASSWORD
     },
-    defaultCommandTimeout: 100000
+    video: true,
+    defaultCommandTimeout: 10000
   }
 }

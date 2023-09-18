@@ -2,8 +2,9 @@ export default class Login {
 
     login(username, password) {
         cy.get('#login2').click()
-        cy.get('#loginusername')
+        cy.get('input[id="loginusername"]')
             .click()
+            .clear()
             .type(username, { log: false }, { force: true })
             .should(($input) => {
                 expect($input).to.have.value(username);
