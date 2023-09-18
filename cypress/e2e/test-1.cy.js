@@ -8,10 +8,6 @@ const username = Cypress.env('username')
 const password = Cypress.env('password')
 
 describe('Registration validation', () => {
-    beforeEach(() => {
-        cy.visit("")
-    })
-
     it('Sign up new user', () => {
         signUpPage.signUp()
 

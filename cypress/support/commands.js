@@ -7,3 +7,12 @@ Cypress.Commands.add('getAlert', () => {
 Cypress.Commands.add('logout', () => {
     cy.get('#logout2').click()
 })
+
+beforeEach(() => {
+    // Clear cookies and local storage before each test
+    // otherwise, the cart would keep the added items from other tests
+    cy.clearCookies();
+    cy.clearLocalStorage();
+
+    cy.visit('');
+});

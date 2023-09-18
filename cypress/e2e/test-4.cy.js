@@ -3,13 +3,6 @@ import ProductsPage from '../page-objects/Products'
 const productsPage = new ProductsPage()
 
 describe('Categories', () => {
-    beforeEach(() => {
-        cy.clearCookies()
-        cy.clearLocalStorage()
-
-        cy.visit("")
-    })
-
     it('Check if Categories list contains all products', () => {
         productsPage.goToCategories();
 

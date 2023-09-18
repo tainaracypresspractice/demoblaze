@@ -9,7 +9,7 @@ export default class Cart {
     // At this method, could be interesting to put a parameter where we specify which item to delete
     // but I chose to keep it simple
     deleteItem(){
-        cy.contains('a', 'Delete', { timeout: 10000 }).click()
+        cy.contains('a', 'Delete').click()
     }
 
     placeOrder(){
@@ -27,12 +27,12 @@ export default class Cart {
             year: "2050"
         }
         
-        cy.get('input#name', { timeout: 10000 }).type(orderInformations.fullName)
-        cy.get('input#country').clear().type(orderInformations.country)
-        cy.get('input#city').clear().type(orderInformations.city)
-        cy.get('input#card').clear().type(orderInformations.creditCardNumber)
-        cy.get('input#month').clear().type(orderInformations.month)
-        cy.get('input#year').clear().type(orderInformations.year)
+        cy.get('input#name').click().type(orderInformations.fullName)
+        cy.get('input#country').click().type(orderInformations.country)
+        cy.get('input#city').click().type(orderInformations.city)
+        cy.get('input#card').click().type(orderInformations.creditCardNumber)
+        cy.get('input#month').click().type(orderInformations.month)
+        cy.get('input#year').click().type(orderInformations.year)
         cy.get('button').contains('Purchase').click()
 
         return orderInformations
