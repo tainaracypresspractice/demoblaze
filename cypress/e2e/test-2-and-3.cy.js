@@ -1,11 +1,9 @@
-import Phones from '../page-objects/Phones'
 import Login from '../page-objects/Login'
 import Cart from '../page-objects/Cart'
 import ProductsPage from '../page-objects/Products'
 import ProductDetailsPage from '../page-objects/ProductDetails'
 
 const productsPage = new ProductsPage()
-const phonesPage = new Phones()
 const loginPage = new Login()
 const cartPage = new Cart()
 const productDetailsPage = new ProductDetailsPage()
@@ -32,7 +30,7 @@ describe('Place order validation', () => {
         productsPage.goToSubCategory('Phones')
 
         //i could use a fixture to get all products names, so i wont hard code it
-        phonesPage.goToPhoneDetail('Samsung galaxy s6')
+        productsPage.goToProductDetail('Samsung galaxy s6')
 
         productDetailsPage.addToCart()
 
@@ -42,7 +40,7 @@ describe('Place order validation', () => {
 
         productsPage.goToSubCategory('Phones')
 
-        phonesPage.goToPhoneDetail('Nokia lumia 1520')
+        productsPage.goToProductDetail('Nokia lumia 1520')
 
         productDetailsPage.addToCart()
 

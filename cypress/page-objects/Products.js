@@ -14,5 +14,23 @@ export default class Products {
     goToProductDetail(productName){
         cy.contains('a', productName).click();
     }
+
+    getTitles() {
+        const titles = []
+    
+        cy.get('a.hrefch').each(($title) => {
+          titles.push($title.text())
+        })
+      
+        cy.get('body').then(($body) => {
+          const isNextButtonVisible = $body.find('button#next2').is(':visible');
+          if (isNextButtonVisible) {
+            cy.get('button#next2').click()
+            titles.push(...getTitles()) // Recursively fetch titles from next page
+          }
+        })
+      
+        return titles
+    }
     
 }
