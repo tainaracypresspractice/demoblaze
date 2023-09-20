@@ -12,6 +12,7 @@
     "@faker-js/faker": "^8.0.2",
     "cypress": "^13.2.0",
     "cypress-if": "^1.10.5",
+    "cypress-recurse": "^1.35.2",
     "dotenv": "^16.3.1"
   }
 }

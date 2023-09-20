@@ -1,14 +1,19 @@
+import { recurse } from 'cypress-recurse'
+
 export default class Login {
 
     login(username, password) {
         cy.get('#login2').click()
-        cy.get('input[id="loginusername"]')
-            .click()
-            .clear()
-            .type(username, { log: false }, { force: true })
-            .should(($input) => {
-                expect($input).to.have.value(username);
-            });
+
+        // Using the library cypress-recurse to avoid flaky tests
+        recurse(
+            () =>  cy.get('input[id="loginusername"]')
+                    .clear()
+                    .type(username, { log: false }),
+            // If input.value == username, the recursion stops
+            ($input) => $input.val() === username
+        ).should('have.value', username)
+
         cy.get('#loginpassword').type(password, { log: false })
         cy.get('button').contains('Log in').click()
     }
